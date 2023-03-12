@@ -21,6 +21,9 @@ public class Vehicle {
         return tollFee;
     }
 
+    public void setTollFee(double toll){
+        tollFee = toll;
+    }
     public int getPassengers(){
         return passengers;
     }

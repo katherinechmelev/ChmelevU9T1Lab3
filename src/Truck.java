@@ -17,6 +17,16 @@ public class Truck extends Vehicle {
     }
 
     public boolean validateLicensePlate(){
-
+        boolean valid = false;
+        int length = getLicensePlate().length();
+        String last2= getLicensePlate().substring(length-2);
+        if (!hasTrailer) {
+            return true;
+        }else if (hasTrailer && axles > 4 && last2.equals("MX")) {
+            valid = true;
+        } else if (hasTrailer && axles <= 4 && last2.equals("LX")) {
+            valid = true;
+        }
+        return valid;
     }
-}
+    }

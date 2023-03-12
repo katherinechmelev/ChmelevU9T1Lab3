@@ -20,4 +20,17 @@ public double getFareCollected(){
         System.out.println("Discount applied?" + isDiscountApplied());
         System.out.println("Fare collected: " + fareCollected);
     }
+
+    public void pickupRiders(int numRiders, double farePerRider){
+        int passengers = getPassengers();
+        passengers+=numRiders;
+        setPassengers(passengers);
+
+        fareCollected += farePerRider*numRiders;
+        if(getPassengers()>=4 && !isDiscountApplied()){
+            setTollFee(getTollFee()*0.5);
+            setDiscountStatus(true);
+        }
+    }
+
 }

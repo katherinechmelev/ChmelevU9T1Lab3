@@ -24,6 +24,9 @@ public class Car extends Vehicle {
         return discountApplied;
     }
 
+    public void setDiscountStatus(boolean newVal){
+        discountApplied = newVal;
+    }
     public boolean dropOffPassengers(int numOut){
         int passengers = getPassengers();
         if(numOut<passengers){
@@ -31,6 +34,14 @@ public class Car extends Vehicle {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public void applyDiscount(){
+        if(!discountApplied && isElectric()){
+            double discount = getTollFee()*0.5;
+            setTollFee(discount);
+            discountApplied=true;
         }
     }
 }
